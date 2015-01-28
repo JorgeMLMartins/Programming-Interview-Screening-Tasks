@@ -1,0 +1,3 @@
+subtract SubtractOperator
+add AddOperator
+multiply MultiplyOperator
