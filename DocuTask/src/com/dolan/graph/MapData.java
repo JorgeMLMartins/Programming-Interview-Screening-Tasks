@@ -15,14 +15,6 @@ public class MapData implements IMapData {
 		this.lines = new int[width][height];
 	}
 
-	private boolean checkCoordinates(int i, int j) {
-		if (i < 0 || j < 0 || i > this.width - 1 || j > this.height - 1) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-
 	@Override
 	public void addRow(int[] row) throws MapSizeMismatchException {
 		if (lineRowCount > this.height || row.length > this.width) {
@@ -60,26 +52,6 @@ public class MapData implements IMapData {
 	}
 
 	@Override
-	public boolean hasTopNeighbour(int i, int j) {
-		return this.checkCoordinates(i, j + 1);
-	}
-
-	@Override
-	public boolean hasLeftNeighbour(int i, int j) {
-		return this.checkCoordinates(i - 1, j);
-	}
-
-	@Override
-	public boolean hasRightNeighbour(int i, int j) {
-		return this.checkCoordinates(i + 1, j);
-	}
-
-	@Override
-	public boolean hasBottomNeighbour(int i, int j) {
-		return this.checkCoordinates(i, j + 1);
-	}
-
-	@Override
 	public int getWidth() {
 		return this.width;
 	}
@@ -87,6 +59,15 @@ public class MapData implements IMapData {
 	@Override
 	public int getHeight() {
 		return this.height;
+	}
+
+	@Override
+	public boolean isValidNeighbour(int i, int j) {
+		if (i < 0 || j < 0 || i > this.width - 1 || j > this.height - 1) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 }

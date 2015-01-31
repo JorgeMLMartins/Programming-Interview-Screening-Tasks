@@ -17,6 +17,9 @@ public interface IMapData {
 	
 	public int getBottomNeighbour(int i, int j);
 	
+	public boolean isValidNeighbour(int i, int j);
+	
+	/*
 	public boolean hasTopNeighbour(int i, int j);
 	
 	public boolean hasLeftNeighbour(int i, int j);
@@ -24,4 +27,5 @@ public interface IMapData {
 	public boolean hasRightNeighbour(int i, int j);
 	
 	public boolean hasBottomNeighbour(int i, int j);
+	*/
 }

@@ -17,6 +17,12 @@ public class FloorMap implements IFloorMap {
 	public void addNode(INode node) {
 		this.adjacencyList.put(node, new ArrayList<INode>());
 	}
+
+	@Override
+	public void addAdjacentNode(INode node, INode adjacent) {
+		List<INode> adjacentNodes = this.adjacencyList.get(node);
+		adjacentNodes.add(adjacent);
+	}
 	
 	
 }
