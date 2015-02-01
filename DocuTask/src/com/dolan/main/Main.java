@@ -2,9 +2,12 @@ package com.dolan.main;
 
 import java.util.Scanner;
 
+import com.dolan.graph.IFloorMap;
 import com.dolan.graph.IMapData;
 import com.dolan.graph.MapData;
 import com.dolan.graph.exceptions.MapSizeMismatchException;
+import com.dolan.graph.factory.IMapFactory;
+import com.dolan.graph.factory.MapFactory;
 
 public class Main {
 	
@@ -24,6 +27,9 @@ public class Main {
 			}
 		}
 		
+		IMapFactory mapFactory = new MapFactory();
+		IFloorMap floorMap = mapFactory.newInstance(mapData);
+		System.out.println(floorMap.toString());
 		scanner.close();
 	}
 	

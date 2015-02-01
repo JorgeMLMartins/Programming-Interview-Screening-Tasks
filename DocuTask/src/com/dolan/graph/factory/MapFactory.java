@@ -37,7 +37,7 @@ public class MapFactory implements IMapFactory {
 				}
 
 				if (mapData.isValidNeighbour(i, j - 1)) {
-					map.addAdjacentNode(nodes[i][j], nodes[i + 1][j - 1]);
+					map.addAdjacentNode(nodes[i][j], nodes[i][j - 1]);
 				}
 			}
 		}
