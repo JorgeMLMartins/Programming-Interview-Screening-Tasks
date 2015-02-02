@@ -25,7 +25,7 @@ public class Main {
 		IMapData mapData = new MapData(width, height);
 		
 		for (int i = 0; i < height; i++) {
-			int[] row = stringArraytoIntArray(scanner.nextLine().split("\\s+"));
+			int[] row = stringArraytoIntArray(scanner.nextLine().split(""));
 			try {
 				mapData.addRow(row);
 			} catch (MapSizeMismatchException e) {

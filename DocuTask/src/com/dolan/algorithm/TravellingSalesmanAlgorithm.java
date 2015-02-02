@@ -28,7 +28,7 @@ public class TravellingSalesmanAlgorithm implements
 				} else {
 					currentPathSize = pathSize;
 				}
-				System.out.println("Current length of path:" + currentPathSize);
+				System.out.println("Current length of path: " + currentPathSize);
 			}
 		}
 	}

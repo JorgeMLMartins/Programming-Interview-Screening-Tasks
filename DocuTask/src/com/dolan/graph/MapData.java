@@ -12,7 +12,7 @@ public class MapData implements IMapData {
 	public MapData(int width, int height) {
 		this.width = width;
 		this.height = height;
-		this.lines = new int[width][height];
+		this.lines = new int[height][width];
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class MapData implements IMapData {
 
 	@Override
 	public int getNodeValue(int i, int j) {
-		return this.lines[i][j];
+		return this.lines[j][i];
 	}
 
 }
