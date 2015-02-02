@@ -1,12 +1,13 @@
 package com.dolan.algorithm;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.dolan.graph.node.Coordinate;
 import com.dolan.graph.node.INode;
 
 public class TravellingSalesmanAlgorithm implements
-		ITravellingSalesmanAlgorithm {
+		IPathOptimiserAlgorithm {
 
 	public TravellingSalesmanAlgorithm() {
 
@@ -15,12 +16,19 @@ public class TravellingSalesmanAlgorithm implements
 	@Override
 	public void optimisePath(List<INode> path) {
 		int currentPathSize = estimatePath(path);
+		
 		for (int i = 0; i < path.size(); i++) {
 			for (int j = 0; j < path.size(); j++) {
+				Collections.swap(path, i, j);
+				System.out.println("Swapping...");
 				int pathSize = estimatePath(path);
 				if (pathSize > currentPathSize) {
-					// swap back
+					Collections.swap(path, j, i);
+					System.out.println("Less optimal route, swapping back...");
+				} else {
+					currentPathSize = pathSize;
 				}
+				System.out.println("Current length of path:" + currentPathSize);
 			}
 		}
 	}

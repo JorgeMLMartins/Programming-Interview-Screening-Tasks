@@ -4,6 +4,6 @@ import java.util.List;
 
 import com.dolan.graph.node.INode;
 
-public interface ITravellingSalesmanAlgorithm {
+public interface IPathOptimiserAlgorithm {
 	void optimisePath(List<INode> path);
 }

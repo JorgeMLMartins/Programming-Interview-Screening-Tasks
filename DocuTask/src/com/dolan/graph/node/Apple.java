@@ -13,4 +13,9 @@ public class Apple implements INode {
 	public Coordinate getCoordinate() {
 		return this.coordinate;
 	}
+	
+	@Override
+	public String toString() {
+		return this.coordinate.toString();
+	}
 }

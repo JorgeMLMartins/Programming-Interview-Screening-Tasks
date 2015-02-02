@@ -1,13 +1,19 @@
 package com.dolan.main;
 
+import java.util.List;
 import java.util.Scanner;
 
+import com.dolan.algorithm.GreedyConnector;
+import com.dolan.algorithm.IConnectorAlgorithm;
+import com.dolan.algorithm.IPathOptimiserAlgorithm;
+import com.dolan.algorithm.TravellingSalesmanAlgorithm;
 import com.dolan.graph.IFloorMap;
 import com.dolan.graph.IMapData;
 import com.dolan.graph.MapData;
 import com.dolan.graph.exceptions.MapSizeMismatchException;
 import com.dolan.graph.factory.IMapFactory;
 import com.dolan.graph.factory.MapFactory;
+import com.dolan.graph.node.INode;
 
 public class Main {
 	
@@ -29,7 +35,13 @@ public class Main {
 		
 		IMapFactory mapFactory = new MapFactory();
 		IFloorMap floorMap = mapFactory.newInstance(mapData);
-		System.out.println(floorMap.toString());
+		
+		IConnectorAlgorithm connector = new GreedyConnector();
+		List<INode> path = connector.findConnections(floorMap.getNodes());
+		
+		IPathOptimiserAlgorithm pathAlgorithm = new TravellingSalesmanAlgorithm();
+		pathAlgorithm.optimisePath(path);
+		System.out.println(path);
 		scanner.close();
 	}
 	

@@ -9,6 +9,9 @@ public interface IMapData {
 	
 	public int getHeight();
 	
+	public int getNodeValue(int i, int j);
+	
+	/*
 	public int getTopNeighbour(int i, int j);
 	
 	public int getLeftNeighbour(int i, int j);
@@ -18,8 +21,7 @@ public interface IMapData {
 	public int getBottomNeighbour(int i, int j);
 	
 	public boolean isValidNeighbour(int i, int j);
-	
-	/*
+
 	public boolean hasTopNeighbour(int i, int j);
 	
 	public boolean hasLeftNeighbour(int i, int j);

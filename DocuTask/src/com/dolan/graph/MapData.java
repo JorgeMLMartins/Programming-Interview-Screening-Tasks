@@ -28,30 +28,6 @@ public class MapData implements IMapData {
 	}
 
 	@Override
-	public int getTopNeighbour(int i, int j) {
-		int newj = j - 1;
-		return this.lines[i][newj];
-	}
-
-	@Override
-	public int getLeftNeighbour(int i, int j) {
-		int newi = i - 1;
-		return this.lines[newi][j];
-	}
-
-	@Override
-	public int getRightNeighbour(int i, int j) {
-		int newi = i + 1;
-		return this.lines[newi][j];
-	}
-
-	@Override
-	public int getBottomNeighbour(int i, int j) {
-		int newj = j + 1;
-		return this.lines[i][newj];
-	}
-
-	@Override
 	public int getWidth() {
 		return this.width;
 	}
@@ -62,12 +38,8 @@ public class MapData implements IMapData {
 	}
 
 	@Override
-	public boolean isValidNeighbour(int i, int j) {
-		if (i < 0 || j < 0 || i > this.width - 1 || j > this.height - 1) {
-			return false;
-		} else {
-			return true;
-		}
+	public int getNodeValue(int i, int j) {
+		return this.lines[i][j];
 	}
 
 }
