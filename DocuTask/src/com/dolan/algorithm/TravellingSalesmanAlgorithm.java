@@ -14,29 +14,27 @@ public class TravellingSalesmanAlgorithm implements
 	}
 
 	@Override
-	public void optimisePath(List<INode> path) {
-		int currentPathSize = estimatePath(path);
+	public int optimisePath(Coordinate startCoordinate, List<INode> path) {
+		int currentPathSize = estimatePath(path) + estimateTimeTravel(startCoordinate, path.get(0).getCoordinate());
 		
 		for (int i = 0; i < path.size(); i++) {
 			for (int j = 0; j < path.size(); j++) {
 				Collections.swap(path, i, j);
-				System.out.println("Swapping...");
-				int pathSize = estimatePath(path);
+				//System.out.println("Swapping...");
+				int pathSize = estimatePath(path) + estimateTimeTravel(startCoordinate, path.get(0).getCoordinate());
 				if (pathSize > currentPathSize) {
 					Collections.swap(path, j, i);
-					System.out.println("Less optimal route, swapping back...");
+					//System.out.println("Less optimal route, swapping back...");
 				} else {
 					currentPathSize = pathSize;
 				}
-				System.out.println("Current length of path: " + currentPathSize);
+				//System.out.println("Current length of path: " + currentPathSize);
 			}
 		}
+		return currentPathSize;
 	}
-
-	private int estimateTimeTravel(INode node1, INode node2) {
-		Coordinate coordinate1 = node1.getCoordinate();
-		Coordinate coordinate2 = node2.getCoordinate();
-
+		
+	private int estimateTimeTravel(Coordinate coordinate1, Coordinate coordinate2) {
 		int xDifference = Math.abs(coordinate1.x - coordinate2.x);
 		int yDifference = Math.abs(coordinate1.y - coordinate2.y);
 
@@ -46,7 +44,7 @@ public class TravellingSalesmanAlgorithm implements
 	private int estimatePath(List<INode> path) {
 		int totalCost = 0;
 		for (int i = 0; i < path.size() - 1; i++) {
-			totalCost += this.estimateTimeTravel(path.get(i), path.get(i + 1));
+			totalCost += this.estimateTimeTravel(path.get(i).getCoordinate(), path.get(i + 1).getCoordinate());
 		}
 		return totalCost;
 	}
