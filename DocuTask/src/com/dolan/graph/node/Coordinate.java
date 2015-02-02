@@ -1,4 +1,4 @@
-package com.dolan.graph;
+package com.dolan.graph.node;
 
 public class Coordinate {
 	public int x;

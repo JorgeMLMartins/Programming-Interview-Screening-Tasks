@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.dolan.graph.node.INode;
+
 public class FloorMap implements IFloorMap {
 
 	private final Map<INode, List<INode>> adjacencyList;
