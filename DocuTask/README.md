@@ -24,3 +24,8 @@ Result:
 ```
 11
 ```
+
+## How it works
+
+It firstly searches for all the apples in on the ground and makes a rough path using the greedy method.
+Then it swaps each of the apples around trying to find a more optimal route. After all is swapped, the shortest path is chosen.
