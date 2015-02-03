@@ -43,6 +43,7 @@ public class Main {
 		IPathOptimiserAlgorithm pathAlgorithm = new TravellingSalesmanAlgorithm();
 		int pathSize = pathAlgorithm.optimisePath(new Coordinate(0, 0), path);
 		System.out.println(pathSize);
+		//System.out.println(path);
 		scanner.close();
 	}
 
